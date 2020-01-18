@@ -1,4 +1,4 @@
-## Interface: 80200
+## Interface: 80300
 ## Title: |cff00ff00TradeSkillMaster Import String Converter|r
 ## Notes: Fixes invalid TSM import itemID group strings
 ## Notes-ruRU: @localization(locale="ruRU", key="Notes", namespace="ToC")@
@@ -14,9 +14,8 @@
 ## Version: @project-version@
 ## Author: Myrroddin/Sygon
 ## X-Revision: @project-revision@
-## X-Copyright: Copyright 2019 Paul Vandersypen. All Rights Reserved
+## X-Copyright: Copyright 2019 - 2020 Paul Vandersypen. All Rights Reserved
 ## X-Date: @project-date-iso@
-## RequiredDeps: TradeSkillMaster, TradeSkillMaster_AppHelper
 ## OptionalDeps: LibStub, CallbackHandler-1.0, Ace3
 ## X-Category: Auction & Economy
 
