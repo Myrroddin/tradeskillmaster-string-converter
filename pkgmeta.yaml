@@ -5,9 +5,5 @@ externals:
     CallbackHandler-1.0: https://repos.wowace.com/wow/callbackhandler/trunk/CallbackHandler-1.0
     AceGUI-3.0: https://repos.wowace.com/wow/ace3/trunk/AceGUI-3.0
 
-required-dependencies:
-    - tradeskillmaster
-    - tradeskillmaster_apphelper
-
 ignore:
     - LibStub/tests
