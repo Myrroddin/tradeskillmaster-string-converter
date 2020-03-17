@@ -1,4 +1,4 @@
-package-as: TradeSkillMaster_StringConverter
+package-as:TSM_StringConverter
 
 externals:
     LibStub: https://repos.wowace.com/wow/libstub/trunk
