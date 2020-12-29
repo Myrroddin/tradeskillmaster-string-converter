@@ -1,5 +1,10 @@
-## Interface: 80300
-## Title: |cff00ff00TradeSkillMaster Import String Converter|r
+#@retail@
+## Interface: 90002
+#@end-retail@
+#@non-retail@
+# ## Interface: 11306
+#@end-non-retail@
+## Title: TradeSkillMaster Import String Converter
 ## Notes: Fixes invalid TSM import itemID group strings
 ## Notes-ruRU: @localization(locale="ruRU", key="Notes", namespace="ToC")@
 ## Notes-deDE: @localization(locale="deDE", key="Notes", namespace="ToC")@
@@ -18,6 +23,8 @@
 ## X-Date: @project-date-iso@
 ## OptionalDeps: LibStub, CallbackHandler-1.0, Ace3
 ## X-Category: Auction & Economy
+## X-Curse-Project-ID: 311361
+## X-WoWI-ID: 24876
 
 #@no-lib-strip@
 LibStub\LibStub.lua
