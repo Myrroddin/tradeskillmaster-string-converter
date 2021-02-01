@@ -3,20 +3,33 @@ local L = addon.L
 local gui = LibStub("AceGUI-3.0")
 
 local text_store = "" -- store the edit box text
-local isShown = false -- toggle for main_frame
+local main_frame
 
-local function ShowFrame()
-    if isShown then return end
+addon.frame = CreateFrame("Frame")
+addon.frame:RegisterEvent("PLAYER_LOGIN")
+addon.frame:RegisterEvent("PLAYER_ENTERING_WORLD")
+addon.frame:SetScript("OnEvent", function(self, event, ...)
+    addon[event](addon, ...)
+end)
 
-    isShown = true
+local function PrintCommands()
+    print(L["/tsmsc slash commands:"])
+    print("  " .. HELP_LABEL:lower() .. " " .. L["or ? prints this menu."])
+    print("  " .. L["login toggles showing the frame when you first log into WoW."])
+    print("  " .. L["reload toggles showing the frame when you reload your UI."])
+    print("  " .. L["message toggles displaying this message when you log into WoW."])
+    print("  " .. L["Any other entry toggles the frame"])
+    print(L["Example: /tsmsc login"])
+end
 
-    -- create the GUI and make it useful
-    local main_frame = gui:Create("Frame")
+local function ToggleFrame()
+    if main_frame and main_frame:IsShown() then return end
+
+    main_frame = main_frame or gui:Create("Frame")
     main_frame:SetTitle(L["TSM String Converter"])
     main_frame:SetStatusText(L["TradeSkillMaster itemID String Fixer"])
     main_frame:SetCallback("OnClose", function(widget)
         text_store = ""
-        isShown = false
         gui:Release(widget)
     end)
     main_frame:SetLayout("Flow")
@@ -52,12 +65,73 @@ local function ShowFrame()
         edit_box:SetLabel(DONE_EDITING)
     end)
     main_frame:AddChild(button)
-end -- end of ShowFrame()
-
-ShowFrame()
+end -- end of ToggleFrame()
 
 -- create and handle slash command
 SLASH_TSMSC1 = L["/tsmsc"]
 SlashCmdList["TSMSC"] = function(msg, editBox) -- the edit box that originated the command, not the input field for itemIDs
-    ShowFrame()
+    msg = msg and strtrim(strlower(msg))
+
+    if msg == L["message"] then
+        TSMSC_DB.showMessage = not TSMSC_DB.showMessage
+        if TSMSC_DB.showMessage then
+            print(L["TSMSC: showing help menu during log in."])
+        else
+            print(L["TSMSC: no help menu during log in."])
+        end
+
+    elseif msg == L["login"] then
+        TSMSC_DB.login = not TSMSC_DB.login
+        if TSMSC_DB.login then
+            print(L["TSMSC: will show the frame during log in."])
+        else
+            print(L["TSMSC: won't show the frame during log in."])
+        end
+
+    elseif msg == L["reload"] then
+        TSMSC_DB.reload = not TSMSC_DB.reload
+        if TSMSC_DB.reload then
+            print(L["TSMSC: will show the frame when you relod your UI."])
+        else
+            print(L["TSMSC: won't show the frame when you reload your UI."])
+        end
+
+    elseif msg == HELP_LABEL:lower() or msg == L["?"] then
+        PrintCommands()
+        
+    else
+        if main_frame and main_frame:IsShown() then
+            text_store = ""
+            main_frame:Release()
+        else
+            ToggleFrame()
+        end
+    end
+end
+
+function addon:PLAYER_LOGIN()
+    TSMSC_DB = TSMSC_DB or {}
+    TSMSC_DB.login = TSMSC_DB.login or true
+    TSMSC_DB.reload = TSMSC_DB.reload or false
+    TSMSC_DB.showMessage = TSMSC_DB.showMessage or true
+
+    addon.frame:UnregisterEvent("PLAYER_LOGIN")
+end
+
+function addon:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUI)
+    if isInitialLogin then
+        if TSMSC_DB.login then
+            ToggleFrame()
+        end
+
+        if TSMSC_DB.showMessage then
+            PrintCommands()
+        end
+    end
+
+    if isReloadingUI then
+        if TSMSC_DB.reload then
+            ToggleFrame()
+        end
+    end
 end

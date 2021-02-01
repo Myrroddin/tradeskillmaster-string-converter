@@ -25,12 +25,11 @@
 ## X-Category: Auction & Economy
 ## X-Curse-Project-ID: 311361
 ## X-WoWI-ID: 24876
+## SavedVariables: TSMSC_DB
 
-#@no-lib-strip@
 LibStub\LibStub.lua
 CallbackHandler-1.0\CallbackHandler-1.0.xml
 AceGUI-3.0\AceGUI-3.0.xml
-#@end-no-lib-strip@
 
 Localization.lua
 Main.lua
