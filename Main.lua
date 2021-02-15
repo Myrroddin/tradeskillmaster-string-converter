@@ -6,7 +6,7 @@ local text_store = "" -- store the edit box text
 local main_frame
 
 addon.frame = CreateFrame("Frame")
-addon.frame:RegisterEvent("PLAYER_LOGIN")
+addon.frame:RegisterEvent("ADDON_LOADED")
 addon.frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 addon.frame:SetScript("OnEvent", function(self, event, ...)
     addon[event](addon, ...)
@@ -109,13 +109,15 @@ SlashCmdList["TSMSC"] = function(msg, editBox) -- the edit box that originated t
     end
 end
 
-function addon:PLAYER_LOGIN()
-    TSMSC_DB = TSMSC_DB or {}
-    TSMSC_DB.login = TSMSC_DB.login or true
-    TSMSC_DB.reload = TSMSC_DB.reload or false
-    TSMSC_DB.showMessage = TSMSC_DB.showMessage or true
+function addon:ADDON_LOADED(...)
+    if ... == title then
+        addon.frame:UnregisterEvent("ADDON_LOADED")
 
-    addon.frame:UnregisterEvent("PLAYER_LOGIN")
+        if TSMSC_DB == nil then TSMSC_DB = {} end
+        if TSMSC_DB.login == nil then TSMSC_DB.login = true end
+        if TSMSC_DB.reload == nil then TSMSC_DB.reload = false end
+        if TSMSC_DB.showMessage == nil then TSMSC_DB.showMessage = true end
+    end
 end
 
 function addon:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUI)
