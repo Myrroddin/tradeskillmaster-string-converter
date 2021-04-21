@@ -1,5 +1,5 @@
 ## Interface-Retail: 90005
-## Interface-Classic: 11306
+## Interface-Classic: 11307
 ## Interface-BC: 20501
 ## Title: TradeSkillMaster Import String Converter
 ## Notes: Fixes invalid TSM import itemID group strings
