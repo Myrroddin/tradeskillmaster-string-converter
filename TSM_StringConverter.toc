@@ -1,6 +1,6 @@
 ## Interface-Retail: 90100
 ## Interface-Classic: 11307
-## Interface-BCC: 20501
+## Interface-BCC: 20502
 ## Title: TradeSkillMaster Import String Converter
 ## Notes: Fixes invalid TSM import itemID group strings
 ## Notes-ruRU: @localization(locale="ruRU", key="Notes", namespace="ToC")@
