@@ -109,9 +109,9 @@ SlashCmdList["TSMSC"] = function(msg, editBox) -- the edit box that originated t
     end
 end
 
-function addon:ADDON_LOADED(...)
+function addon:ADDON_LOADED(event, ...)
     if ... == title then
-        addon.frame:UnregisterEvent("ADDON_LOADED")
+        addon.frame:UnregisterEvent(event)
 
         if TSMSC_DB == nil then TSMSC_DB = {} end
         if TSMSC_DB.login == nil then TSMSC_DB.login = true end
@@ -120,7 +120,7 @@ function addon:ADDON_LOADED(...)
     end
 end
 
-function addon:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUI)
+function addon:PLAYER_ENTERING_WORLD(event, isInitialLogin, isReloadingUI)
     if isInitialLogin then
         if TSMSC_DB.login then
             ToggleFrame()
