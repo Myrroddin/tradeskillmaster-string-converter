@@ -9,7 +9,7 @@ addon.frame = CreateFrame("Frame")
 addon.frame:RegisterEvent("ADDON_LOADED")
 addon.frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 addon.frame:SetScript("OnEvent", function(self, event, ...)
-    addon[event](addon, ...)
+    addon[event](self, ...)
 end)
 
 local function PrintCommands()
@@ -109,9 +109,9 @@ SlashCmdList["TSMSC"] = function(msg, editBox) -- the edit box that originated t
     end
 end
 
-function addon:ADDON_LOADED(event, ...)
-    if ... == title then
-        addon.frame:UnregisterEvent(event)
+function addon:ADDON_LOADED(arg1)
+    if arg1 == title then
+        addon.frame:UnregisterEvent("ADDON_LOADED")
 
         if TSMSC_DB == nil then TSMSC_DB = {} end
         if TSMSC_DB.login == nil then TSMSC_DB.login = true end
@@ -120,7 +120,7 @@ function addon:ADDON_LOADED(event, ...)
     end
 end
 
-function addon:PLAYER_ENTERING_WORLD(event, isInitialLogin, isReloadingUI)
+function addon:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUI)
     if isInitialLogin then
         if TSMSC_DB.login then
             ToggleFrame()
