@@ -23,9 +23,7 @@ local function PrintCommands()
 end
 
 local function ToggleFrame()
-    if main_frame and main_frame:IsShown() then return end
-
-    main_frame = main_frame or gui:Create("Frame")
+    main_frame = gui:Create("Frame")
     main_frame:SetTitle(L["TSM String Converter"])
     main_frame:SetStatusText(L["TradeSkillMaster itemID String Fixer"])
     main_frame:SetCallback("OnClose", function(widget)
@@ -99,11 +97,11 @@ SlashCmdList["TSMSC"] = function(msg, editBox) -- the edit box that originated t
     elseif msg == HELP_LABEL:lower() or msg == L["?"] then
         PrintCommands()
         
-    else
+    elseif msg or not msg then
         if main_frame and main_frame:IsShown() then
             text_store = ""
             main_frame:Release()
-        else
+        elseif not main_frame or not main_frame:IsShown() then
             ToggleFrame()
         end
     end
@@ -123,6 +121,11 @@ end
 function addon:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUI)
     if isInitialLogin then
         if TSMSC_DB.login then
+            if main_frame then
+                -- start with a clean slate
+                text_store = ""
+                main_frame:Release()
+            end
             ToggleFrame()
         end
 
@@ -133,6 +136,11 @@ function addon:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUI)
 
     if isReloadingUI then
         if TSMSC_DB.reload then
+            if main_frame then
+                -- start with a clean slate
+                text_store = ""
+                main_frame:Release()
+            end
             ToggleFrame()
         end
     end
