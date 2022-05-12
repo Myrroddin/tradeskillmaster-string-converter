@@ -1,0 +1,35 @@
+## Interface: 90200
+## Interface-Classic: 11403
+## Interface-BCC: 20504
+## Title: |cff00fe00TradeSkillMaster Import String Converter|r
+## Notes: Fixes invalid TSM import itemID group strings
+## Notes-ruRU: @localization(locale="ruRU", key="Notes", namespace="ToC")@
+## Notes-deDE: @localization(locale="deDE", key="Notes", namespace="ToC")@
+## Notes-koKR: @localization(locale="koKR", key="Notes", namespace="ToC")@
+## Notes-esMX: @localization(locale="esMX", key="Notes", namespace="ToC")@
+## Notes-esES: @localization(locale="esES", key="Notes", namespace="ToC")@
+## Notes-ptBR: @localization(locale="ptBR", key="Notes", namespace="ToC")@
+## Notes-zhCN: @localization(locale="zhCN", key="Notes", namespace="ToC")@
+## Notes-zhTW: @localization(locale="zhTW", key="Notes", namespace="ToC")@
+## Notes-itIT: @localization(locale="itIT", key="Notes", namespace="ToC")@
+## Notes-frFR: @localization(locale="frFR", key="Notes", namespace="ToC")@
+## Version: @project-version@
+## Author: Myrroddin/Sygon
+## X-Revision: @project-revision@
+## X-Copyright: Copyright 2019 - 2022 Paul Vandersypen. All Rights Reserved
+## X-Date: @project-date-iso@
+## OptionalDeps: LibStub, CallbackHandler-1.0, Ace3
+## X-Category: Auction & Economy
+
+## X-Curse-Project-ID: 311361
+## X-WoWI-ID: 24876
+## X-Waago-ID: RBKpxXKE
+
+## SavedVariables: TSMSC_DB
+
+LibStub\LibStub.lua
+CallbackHandler-1.0\CallbackHandler-1.0.xml
+AceGUI-3.0\AceGUI-3.0.xml
+
+Localization.lua
+Main.lua

@@ -1,4 +1,4 @@
-package-as: TSM_StringConverter
+package-as: TradeSkillMaster_StringConverter
 wowi-archive-previous: no
 
 externals:

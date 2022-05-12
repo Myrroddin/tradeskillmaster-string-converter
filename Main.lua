@@ -97,7 +97,7 @@ SlashCmdList["TSMSC"] = function(msg, editBox) -- the edit box that originated t
     elseif msg == HELP_LABEL:lower() or msg == L["?"] then
         PrintCommands()
         
-    elseif msg or not msg then
+    else
         if main_frame and main_frame:IsShown() then
             text_store = ""
             main_frame:Release()
