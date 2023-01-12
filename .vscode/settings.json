@@ -1,5 +1,11 @@
 {
     "Lua.diagnostics.globals": [
-        "HELP_LABEL"
+        "HELP_LABEL",
+        "SlashCmdList",
+        "CONVERT",
+        "DONE_EDITING"
+    ],
+    "Lua.diagnostics.disable": [
+        "param-type-mismatch"
     ]
 }
