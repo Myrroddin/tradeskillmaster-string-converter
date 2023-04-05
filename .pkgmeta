@@ -3,9 +3,9 @@ wowi-archive-previous: no
 enable-toc-creation: yes
 
 externals:
-    LibStub: https://repos.wowace.com/wow/libstub/trunk
-    CallbackHandler-1.0: https://repos.wowace.com/wow/callbackhandler/trunk/CallbackHandler-1.0
-    AceGUI-3.0: https://repos.wowace.com/wow/ace3/trunk/AceGUI-3.0
+    LibStub: https://repos.curseforge.com/wow/libstub/trunk
+    CallbackHandler-1.0: https://repos.curseforge.com/wow/callbackhandler/trunk/CallbackHandler-1.0
+    AceGUI-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceGUI-3.0
 
 ignore:
     - LibStub/tests
