@@ -1,5 +1,5 @@
 ## Interface: 100200
-## Interface-Classic: 11404
+## Interface-Classic: 11405
 ## Interface-Wrath: 30403
 ## Title: |cff00fe00TradeSkillMaster Import String Converter|r
 ## Notes: Fixes invalid TSM import itemID group strings
