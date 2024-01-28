@@ -16,7 +16,7 @@
 ## Version: @project-version@
 ## Author: Myrroddin/Sygon
 ## X-Revision: @project-revision@
-## X-Copyright: Copyright (c) 2023 Paul Vandersypen. All Rights Reserved
+## X-Copyright: Copyright (c) 2024 Paul Vandersypen. All Rights Reserved
 ## X-Date: @project-date-iso@
 ## OptionalDeps: LibStub, CallbackHandler-1.0, Ace3
 ## X-Category: Auction & Economy
