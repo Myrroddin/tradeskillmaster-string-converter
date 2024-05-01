@@ -104,7 +104,6 @@ SlashCmdList["TSMSC"] = function(msg, editBox) -- the edit box that originated t
 
     elseif msg == HELP_LABEL:lower() or msg == L["?"] then
         PrintCommands()
-        
     else
         if main_frame and main_frame:IsShown() then
             text_store = ""
@@ -115,7 +114,7 @@ SlashCmdList["TSMSC"] = function(msg, editBox) -- the edit box that originated t
     end
 end
 
-function addon:ADDON_LOADED(arg1)
+function addon:ADDON_LOADED(_, arg1)
     if arg1 == title then
         addon.frame:UnregisterEvent("ADDON_LOADED")
 
@@ -126,7 +125,7 @@ function addon:ADDON_LOADED(arg1)
     end
 end
 
-function addon:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUI)
+function addon:PLAYER_ENTERING_WORLD(_, isInitialLogin, isReloadingUI)
     if isInitialLogin then
         if TSMSC_DB.login then
             if main_frame then
