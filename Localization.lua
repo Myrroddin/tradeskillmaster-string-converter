@@ -1,3 +1,4 @@
+---@class string, table
 local _, addon = ...
 
 local L = setmetatable({}, {__index = function(t, k)

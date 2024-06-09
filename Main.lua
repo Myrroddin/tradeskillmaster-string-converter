@@ -1,8 +1,10 @@
+---@class string, table
 local title, addon = ...
 local L = addon.L
 local gui = LibStub("AceGUI-3.0")
 
 local text_store = "" -- store the edit box text
+---@class table
 local main_frame
 
 addon.frame = CreateFrame("Frame")
@@ -75,7 +77,7 @@ end -- end of ToggleFrame()
 
 -- create and handle slash command
 SLASH_TSMSC1 = L["/tsmsc"]
-SlashCmdList["TSMSC"] = function(msg, editBox) -- the edit box that originated the command, not the input field for itemIDs
+SlashCmdList["TSMSC"] = function(msg) -- the unused edit box that originated the command, not the input field for itemIDs
     msg = msg and strtrim(strlower(msg))
 
     if msg == L["message"] then

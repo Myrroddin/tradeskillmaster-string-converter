@@ -1,6 +1,5 @@
 package-as: TradeSkillMaster_StringConverter
 wowi-archive-previous: no
-enable-toc-creation: yes
 
 externals:
     LibStub: https://repos.curseforge.com/wow/libstub/trunk
