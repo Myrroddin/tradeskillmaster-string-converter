@@ -1,4 +1,4 @@
-## Interface: 11502, 40400, 100207
+## Interface: 11503, 40400, 100207
 ## Title: |cff00fe00TradeSkillMaster Import String Converter|r
 ## Notes: Fixes invalid TSM import itemID group strings
 ## Notes-ruRU: @localization(locale="ruRU", key="Notes", namespace="ToC")@
